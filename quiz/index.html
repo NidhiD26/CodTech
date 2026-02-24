@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Attack on Titan – Ultimate Quiz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Fog / smoke overlay -->
+  <div class="fog-overlay" aria-hidden="true">
+    <div class="fog fog-1"></div>
+    <div class="fog fog-2"></div>
+  </div>
+
+  <!-- Animated titan silhouette -->
+  <div class="titan-silhouette" aria-hidden="true"></div>
+
+  <!-- Slash effect canvas -->
+  <canvas id="slashCanvas" aria-hidden="true"></canvas>
+
+  <!-- Audio toggle -->
+  <button class="music-toggle" id="musicToggle" aria-label="Toggle background music" title="Toggle Music">
+    <span class="music-icon">♫</span>
+  </button>
+
+  <!-- ===================== LANDING SCREEN ===================== -->
+  <section id="landingScreen" class="screen active" aria-label="Landing screen">
+    <div class="landing-content slide-up">
+      <h1 class="landing-title">Attack on Titan</h1>
+      <h2 class="landing-subtitle">Ultimate Quiz</h2>
+      <p class="landing-tagline">"If you win, you live. If you lose, you die. If you don't fight, you can't win."</p>
+
+      <div class="difficulty-select">
+        <p class="difficulty-label">Select Difficulty</p>
+        <div class="difficulty-buttons" role="radiogroup" aria-label="Difficulty selection">
+          <button class="diff-btn active" data-difficulty="easy" aria-pressed="true">Cadet</button>
+          <button class="diff-btn" data-difficulty="medium" aria-pressed="false">Scout</button>
+          <button class="diff-btn" data-difficulty="hard" aria-pressed="false">Veteran</button>
+        </div>
+      </div>
+
+      <button class="btn-primary start-btn" id="startBtn" aria-label="Start the quiz">
+        <span>Dedicate Your Heart</span>
+      </button>
+
+      <p class="high-score-display" id="highScoreDisplay" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <!-- ===================== QUIZ SCREEN ===================== -->
+  <section id="quizScreen" class="screen" aria-label="Quiz screen">
+    <div class="quiz-header">
+      <div class="question-counter" id="questionCounter" aria-live="polite">Question 1 / 15</div>
+      <div class="timer-wrapper">
+        <svg class="timer-svg" viewBox="0 0 100 100" aria-hidden="true">
+          <circle class="timer-bg" cx="50" cy="50" r="45"></circle>
+          <circle class="timer-ring" id="timerRing" cx="50" cy="50" r="45"></circle>
+        </svg>
+        <span class="timer-text" id="timerText" aria-live="polite">30</span>
+      </div>
+    </div>
+
+    <div class="progress-bar-container" aria-label="Quiz progress">
+      <div class="progress-bar" id="progressBar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+
+    <div class="quiz-body">
+      <h2 class="question-text" id="questionText"></h2>
+      <div class="options-grid" id="optionsGrid" role="list"></div>
+    </div>
+
+    <button class="btn-primary next-btn hidden" id="nextBtn" aria-label="Next question">
+      <span>Next &rarr;</span>
+    </button>
+  </section>
+
+  <!-- ===================== RESULT SCREEN ===================== -->
+  <section id="resultScreen" class="screen" aria-label="Result screen">
+    <div class="result-content">
+      <div class="badge-card" id="badgeCard">
+        <div class="badge-emblem" id="badgeEmblem" aria-hidden="true"></div>
+        <h2 class="result-score" id="resultScore"></h2>
+        <p class="result-percent" id="resultPercent"></p>
+        <h3 class="result-rank" id="resultRank"></h3>
+      </div>
+
+      <p class="result-message" id="resultMessage"></p>
+
+      <div class="result-actions">
+        <button class="btn-primary" id="restartBtn" aria-label="Restart quiz">
+          <span>Fight Again</span>
+        </button>
+        <button class="btn-secondary" id="shareBtn" aria-label="Share result">
+          <span>Share Result</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Confetti container -->
+    <div id="confettiContainer" class="confetti-container" aria-hidden="true"></div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
