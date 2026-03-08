@@ -11,10 +11,39 @@
 </head>
 <body>
 
+  <!-- Background image layer -->
+  <div class="bg-layer" aria-hidden="true"></div>
+
+  <!-- Vignette overlay -->
+  <div class="vignette" aria-hidden="true"></div>
+
+  <!-- Scanline overlay -->
+  <div class="scanlines" aria-hidden="true"></div>
+
   <!-- Fog / smoke overlay -->
   <div class="fog-overlay" aria-hidden="true">
     <div class="fog fog-1"></div>
     <div class="fog fog-2"></div>
+    <div class="fog fog-3"></div>
+  </div>
+
+  <!-- Floating embers -->
+  <div class="embers" aria-hidden="true">
+    <div class="ember"></div>
+    <div class="ember"></div>
+    <div class="ember"></div>
+    <div class="ember"></div>
+    <div class="ember"></div>
+    <div class="ember"></div>
+    <div class="ember"></div>
+    <div class="ember"></div>
+    <div class="ember"></div>
+    <div class="ember"></div>
+    <div class="ember"></div>
+    <div class="ember"></div>
+    <div class="ember"></div>
+    <div class="ember"></div>
+    <div class="ember"></div>
   </div>
 
   <!-- Animated titan silhouette -->
@@ -31,8 +60,10 @@
   <!-- ===================== LANDING SCREEN ===================== -->
   <section id="landingScreen" class="screen active" aria-label="Landing screen">
     <div class="landing-content slide-up">
-      <h1 class="landing-title">Attack on Titan</h1>
-      <h2 class="landing-subtitle">Ultimate Quiz</h2>
+      <div class="wings-emblem" aria-hidden="true"></div>
+      <h1 class="landing-title glitch-text" data-text="Attack on Titan">Attack on Titan</h1>
+      <div class="blood-drip" aria-hidden="true"></div>
+      <h2 class="landing-subtitle typewriter">Ultimate Quiz</h2>
       <p class="landing-tagline">"If you win, you live. If you lose, you die. If you don't fight, you can't win."</p>
 
       <div class="difficulty-select">
@@ -70,7 +101,7 @@
     </div>
 
     <div class="quiz-body">
-      <h2 class="question-text" id="questionText"></h2>
+      <h2 class="question-text fade-in-question" id="questionText"></h2>
       <div class="options-grid" id="optionsGrid" role="list"></div>
     </div>
 
